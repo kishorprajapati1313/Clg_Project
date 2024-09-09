@@ -1,0 +1,21 @@
+{
+    "name": "Text To Image Converter",
+    "short_name": "Imager",
+    "icons": [
+      {
+        "src": "favicon.ico",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "back1.jpg",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "/index.html",
+    "display": "standalone",
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff"
+  }
+  

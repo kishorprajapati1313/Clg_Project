@@ -1,0 +1,57 @@
+        const res = await axios.get(`http://localhost:1415/category/${cat}`);
+
+
+        const res = await axios.get('http://localhost:1415/product');
+
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import { Card, CardContent, CardMedia, Typography, Box, Grow } from '@mui/material';
+
+const Product = () => {
+  const { cat } = useParams();
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        // const res = await axios.get(`http://localhost:1415/category/${cat}`);
+        const res = await axios.get('http://localhost:1415/product');
+
+        setProducts(res.data);
+      } catch (error) {
+        console.error("Error in fetching products", error);
+      }
+    };
+
+    fetchProducts();
+  }, [cat]);
+
+  return (
+    <Box display="flex" justifyContent="center" flexWrap="wrap" gap={2} p={2}>
+      {products.map((product, index) => (
+        <Grow key={product._id} in={true} timeout={index * 300}>
+          <Card sx={{ maxWidth: 300, boxShadow: 5, borderRadius: 5, transition: 'transform 0.3s' }}>
+            <CardMedia
+              component="img"
+              height="140"
+              image={product.img1}
+              alt={product.name}
+              sx={{ objectFit: 'cover', borderRadius: '5px 5px 0 0' }}
+            />
+            <CardContent>
+              <Typography variant="h6" fontWeight="bold" sx={{ mb: 1 }}>
+                {product.product_name}
+              </Typography>
+              <Typography variant="body2" color="textSecondary">
+                {product.description}
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grow>
+      ))}
+    </Box>
+  );
+};
+
+export default Product;
