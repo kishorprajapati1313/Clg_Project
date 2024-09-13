@@ -1,0 +1,21 @@
+{
+    "name": "Image To Video Genration [60s]",
+    "short_name": "Pic2Vid",
+    "icons": [
+      {
+        "src": "favicon.ico",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "back11.jpeg",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "/index.html",
+    "display": "standalone",
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff"
+  }
+  
